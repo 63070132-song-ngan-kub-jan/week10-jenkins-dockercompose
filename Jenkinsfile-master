@@ -5,6 +5,7 @@ pipeline {
       steps {
         dir('week10-jenkins-dockercompose') {
           echo 'Pull git repository...'
+          sh 'ls'
           sh 'git pull origin main'
         }
       }
