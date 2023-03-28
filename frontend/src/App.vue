@@ -7,7 +7,7 @@ const image = ref(null)
 const outputImage = ref(null)
 const loading = ref(false)
 
-const url = "http://localhost:8082"
+const url = "http://3.87.81.13:8082"
 
 function onImageChoose(event) {
   outputImage.value = null
