@@ -3,29 +3,22 @@ pipeline {
   stages {
     stage('Git initialize') {
       steps {
-        dir('week10-jenkins-dockercompose') {
-          echo 'Pull git repository...'
-          sh 'ls'
-          sh 'git pull origin main'
-        }
+        echo 'Pull git repository...'
+        sh 'git pull origin main'
       }
     }
     stage('Docker build images') {
       steps {
-        dir('week10-jenkins-dockercompose') {
-          echo 'Start building Docker images...'
-          sh 'docker-compose down --rmi all'
-          sh 'docker-compose build'
-        }
+        echo 'Start building Docker images...'
+        sh 'docker-compose down --rmi all'
+        sh 'docker-compose build'
       }
     }
     stage('Docker push images to DockerHub') {
       steps {
-        dir('week10-jenkins-dockercompose') {
-          echo 'Pushing Docker images...'
-          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-frontend:latest'
-          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-backend:latest'
-        }
+        echo 'Pushing Docker images...'
+        sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-frontend:latest'
+        sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-backend:latest'
       }
     }
   }
