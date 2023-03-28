@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {
+    DOCKER_CREDS: credentials('dockerhub')
+    GIT_CREDS: credentials('github')
+  }
   stages {
     stage('Git initialize') {
       steps {
@@ -17,6 +21,7 @@ pipeline {
     stage('Docker push images to DockerHub') {
       steps {
         echo 'Pushing Docker images...'
+        sh 'echo ${DOCKER_CRED_PSM} | docker login -u ${DOCKER_CREDS_USR} --password-stdin'
         sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-frontend:latest'
         sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-backend:latest'
       }
