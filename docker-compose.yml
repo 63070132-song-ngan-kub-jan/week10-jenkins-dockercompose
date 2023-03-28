@@ -2,9 +2,11 @@ version: '3'
 services:
   frontend:
     build: ./frontend
+    image: panupongkeawkam/week10-jenkins-dockercompose-frontend
     ports:
     - "8081:8081"
   backend:
     build: ./backend
+    image: panupongkeawkam/week10-jenkins-dockercompose-backend
     ports:
     - "8082:8082"
