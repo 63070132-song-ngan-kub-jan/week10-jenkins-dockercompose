@@ -11,7 +11,7 @@ pipeline {
       steps {
         dir('week10-jenkins-dockercompose') {
           echo 'Start building Docker images...'
-          sh 'docker-compose down --rmi all'
+          sh 'docker rmi $(docker images -q) -f'
           sh 'docker-compose build'
         }
       }
@@ -20,8 +20,8 @@ pipeline {
       steps {
         dir('week10-jenkins-dockercompose') {
           echo 'Pushing Docker images...'
-          sh 'docker tag week10-jenkins-dockercompose-master_frontend:latest panupongkeawkam/week10-jenkins-dockercompose-frontend'
-          sh 'docker tag week10-jenkins-dockercompose-master_backend:latest panupongkeawkam/week10-jenkins-dockercompose-backend'
+          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-frontend'
+          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-backend'
         }
       }
     }
