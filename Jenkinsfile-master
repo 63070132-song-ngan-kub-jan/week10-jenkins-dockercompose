@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-    DOCKER_CREDS: credentials('dockerhub')
-    GIT_CREDS: credentials('github')
+    DOCKER_CREDS = credentials('dockerhub')
+    GIT_CREDS = credentials('github')
   }
   stages {
     stage('Git initialize') {
