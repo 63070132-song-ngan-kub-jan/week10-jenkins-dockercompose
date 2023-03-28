@@ -5,21 +5,18 @@ pipeline {
     GIT_CREDS: credentials('github')
   }
   stages {
-    stage('Git initialize') {
+    stage('Pull images') {
       steps {
-        dir('week10-jenkins-dockercompose') {
-          echo 'Pull git repository...'
-          git 'pull origin main'
-        }
+        echo 'Pulling Docker images from DockerHub...'
+        sh 'docker pull panupongkeawkam/week10-jenkins-dockercompose-frontend'
+        sh 'docker pull panupongkeawkam/week10-jenkins-dockercompose-backend'
       }
     }
-    stage('Docker build images') {
+    stage('Run containers') {
       steps {
-        dir('week10-jenkins-dockercompose') {
-          echo 'Start building Docker images...'
-          sh 'docker-compose down --rmi all'
-          sh 'docker-compose build'
-        }
+        echo 'Running containers...'
+        sh 'docker-compose up'
+        sh 'docker-compose up'
       }
     }
   }
