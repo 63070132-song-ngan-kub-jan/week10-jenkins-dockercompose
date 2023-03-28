@@ -15,8 +15,8 @@ pipeline {
     stage('Run containers') {
       steps {
         echo 'Running containers...'
-        sh 'docker-compose up'
-        sh 'docker-compose up'
+        sh 'docker run -d -p 8081:8081 panupongkeawkam/week10-jenkins-dockercompose-frontend'
+        sh 'docker run -d -p 8082:8082 panupongkeawkam/week10-jenkins-dockercompose-backend'
       }
     }
   }
