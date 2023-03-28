@@ -1,18 +1,22 @@
 pipeline {
   agent any
   stages {
-    stage('Initialize Stage') {
+    stage('Git initialize') {
       steps {
-        echo 'Hello World!'
-      }
-    }
-    /* stage('Build Stage') {
-      steps {
-        dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
-          echo "Current path is ${pwd()}"
-          sh "docker-compose up -d"
+        dir('week10-jenkins-dockercompose') {
+          echo 'Pull git repository...'
+          git 'pull origin main'
         }
       }
-    } */
+    }
+    stage('Docker build images') {
+      steps {
+        dir('week10-jenkins-dockercompose') {
+          echo 'Start building Docker images...'
+          sh 'docker-compose down --rmi all'
+          sh 'docker-compose build'
+        }
+      }
+    }
   }
 }
