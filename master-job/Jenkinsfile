@@ -4,7 +4,7 @@ pipeline {
     stage('Git initialize') {
       steps {
         echo 'Pull clone repository...'
-        git 'clone https://github.com/63070132-song-ngan-kub-jan/week10-jenkins-dockercompose'
+        sh 'git clone https://github.com/63070132-song-ngan-kub-jan/week10-jenkins-dockercompose.git'
       }
     }
     stage('Docker build images') {
