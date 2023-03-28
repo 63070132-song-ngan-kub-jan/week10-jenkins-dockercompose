@@ -20,8 +20,8 @@ pipeline {
       steps {
         dir('week10-jenkins-dockercompose') {
           echo 'Pushing Docker images...'
-          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-frontend'
-          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-backend'
+          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-frontend:latest'
+          sh 'docker push panupongkeawkam/week10-jenkins-dockercompose-backend:latest'
         }
       }
     }
