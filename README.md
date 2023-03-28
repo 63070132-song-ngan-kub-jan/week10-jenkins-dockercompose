@@ -1,4 +1,4 @@
-# อันนี้เป็น Video นำเสนอครับ [>>คลิกที่นี่<<](https://drive.google.com/file/d/1JQoBSbwTZ9Ep6p8aUy0Nh8LxhrnCQr8U/view?usp=sharing)
+# อันนี้เป็น Video นำเสนอครับ [>>คลิกที่นี่<<](https://drive.google.com/file/d/1HUva4ZxQFUBvFcn0CEsF32PRINw_eSVi/view?usp=sharing)
 
 ผมใช้ Jenkins ในการรับ hook จาก GitHub เมื่อมีการ commit จากนั้นทำการ สร้าง Docker image โดยใช้ Docker Compose แล้วจึง push ขึ้น DockerHub เมื่อเสร็จได้มีการเรียกตัว slave job เพื่อ pull images จาก DockerHub เมื่อสักครู่ จากนั้นจึงทำการ run containers
 
