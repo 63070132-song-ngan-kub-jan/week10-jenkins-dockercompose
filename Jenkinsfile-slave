@@ -25,9 +25,6 @@ pipeline {
             sh 'docker stop $(docker ps -aq)'
             sh 'docker rm $(docker ps -aq)'
           }
-          
-          sh 'docker run -d -p 8081:8081 panupongkeawkam/week10-jenkins-dockercompose-frontend'
-          sh 'docker run -d -p 8082:8082 panupongkeawkam/week10-jenkins-dockercompose-backend'
         }
       }
     }
