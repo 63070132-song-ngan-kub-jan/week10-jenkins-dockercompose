@@ -3,15 +3,17 @@ pipeline {
   stages {
     stage('Git initialize') {
       steps {
-        echo 'Pull git repository...'
-        sh 'git pull origin main'
+        dir('week10-jenkins-dockercompose') {
+          echo 'Pull git repository...'
+          sh 'git pull origin main'
+        }
       }
     }
     stage('Docker build images') {
       steps {
         dir('week10-jenkins-dockercompose') {
           echo 'Start building Docker images...'
-          sh 'docker rmi $(docker images -q) -f'
+          sh 'docker-compose down --rmi all'
           sh 'docker-compose build'
         }
       }
