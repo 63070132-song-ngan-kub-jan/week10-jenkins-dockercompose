@@ -3,10 +3,8 @@ pipeline {
   stages {
     stage('Git initialize') {
       steps {
-        dir('week10-jenkins-dockercompose') {
-          echo 'Pull git repository...'
-          git 'pull origin main'
-        }
+        echo 'Pull clone repository...'
+        git 'clone https://github.com/63070132-song-ngan-kub-jan/week10-jenkins-dockercompose'
       }
     }
     stage('Docker build images') {
